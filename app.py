@@ -28,7 +28,7 @@ def login():
         username=request.form['username']
         passcode=request.form['password']
 
-        users=user(username)
+        users=get_user(username)
         
         if users and passcode==users['password']:
           session['username']=username
@@ -39,9 +39,8 @@ def login():
 
 
     return render_template('login.html',error=error)
-@app.route('/new',methods=['GET','POST'])
 
-def user(username):
+def get_user(username):
     sql="""
 
      SELECT username,password
@@ -62,6 +61,9 @@ def user(username):
     except Exception as e:
         print(e)
         return None
+
+@app.route('/new',methods=['GET','POST'])
+
 
 def new_record():
  if request.method=='POST':
