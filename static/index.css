@@ -91,7 +91,6 @@ body{
     margin: 1px auto;
 }
 .main-right{
-    margin-left: 241px;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -103,10 +102,11 @@ body{
 .side-nav{
     position: fixed;
     height: 100vh;
-    width: 240px;
+    width: 150px;
     background-color: burlywood;
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     justify-content: space-between;
     box-sizing: border-box;
 }
@@ -155,8 +155,13 @@ body{
 }
 
 .top-buttons-container button, .bottom-buttons-container button{
-    width: 80%;
+    width: 100%;
     height: 100%;
+    display: flex;
+    gap: 5px;
+    justify-content: space-evenly;
+    align-content: flex-start;
+    align-items: center;
     font-size: medium;
     font-style: bold;
     color: #2C3E50;
@@ -171,72 +176,16 @@ body{
     cursor: pointer;
 }
 
-/* right side container */
-#login-container{
-    
-    background-color: burlywood;
-    padding: 50px;
-    width: 400px;
-    border-radius: 8px;
-    align-items: center;
-    box-sizing: border-box 
-}
-
-#login-container h2{
-    text-align:center;
-    margin: 10px;
-
-}
-
-.input-group{
-    width: 100%;
-
-}
-
-.input-group label{
-    display: block;
-    margin: bottom 5px;
-    font-weight: bold;
-}
-
-.input-group input{
-    background-color: wheat;
-    width: 100%;
-    padding:10px 12px;
-    border-radius:6px;
-    border: none;
-    font-size: 0.95rem;
-}
-
-#login-submit{ 
-    width:100%;
-    padding:10px;
-    background-color: #2C3E50;
-    color:wheat;
-    border:none;
-    border-radius: 4px;
-    font-size:medium;
-
-    transition-duration: 0.4s;
-    
-}
-
-#login-submit:hover{
-    background-color: #0056b3;
-}
-
-
 @media (max-width: 990px) {
     .side-nav{
-        width: 50px;
+        width: 80px;
     }
-    .buttons-container a{
-        width: 100%;
+    .buttons-container .text{
+        display: none;
     }
-    .buttons-container button{
-        visibility: hidden;
-    }
-    .main-right{
-        margin-left: 51px;
+    .main-right {
+        margin-left: 100px;
+        width: calc(100vw - 120px);
+        grid-template-columns: 100%;
     }
 }

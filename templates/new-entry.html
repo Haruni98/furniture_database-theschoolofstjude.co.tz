@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <script src="index.js"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='index.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='new-entry.css')}}">
+    <link rel="stylesheet" href="C:\Users\sj02093\Desktop\programming\python\furniture_database-theschoolofstjude.co.tz\static\index.css">
+    <link rel="stylesheet" href="C:\Users\sj02093\Desktop\programming\python\furniture_database-theschoolofstjude.co.tz\static\new-entry.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>new entry</title>
@@ -11,7 +12,7 @@
 <body>
     <header id="top-header">
         <div class="logo-container">
-            <img src="school logo.png" alt="logo">
+            <img src="C:\Users\sj02093\Desktop\programming\python\furniture_database-theschoolofstjude.co.tz\static\school logo.png" alt="logo">
         </div>
         <div class="header-contents">
             <div class="searchbox-container">
@@ -19,13 +20,16 @@
             </div>
             <div class="header-links-container">
                 <button id="login-button" type="button" onclick="showLoginContainer()">
-                    🔑login
+                    <span class="icon"><i class="fas fa-home"></i></span>
+                    <span class="text">home</span>
                 </button>
                 <button class="notification-button">
-                    🔔notifications
+                    <span class="icon"><i class="fas fa-bell"></i></span>
+                    <span class="text">notifications</span>
                 </button>
                 <button class="settings-button">
-                    ⚙️settings
+                    <span class="icon"><i class="fas fa-gear"></i></span>
+                    <span class="text">settings</span>
                 </button>
             </div>
         </div>
@@ -34,62 +38,79 @@
         <aside class="side-nav">
                 <div class="top-buttons-container">
                     <div class="buttons-container">
-                        <a id="home" href="/new">
-                           🏚️
-                        </a>
-                        <button id="gohome" class="home-button">home</button>
+                        <button id="home" class="home-button">
+                           <span class="icon"><i class="fas fa-home"></i></span>
+                           <span class="text">Home</span>
+                        </button>
+                        
                     </div>
                     <div class="buttons-container">
-                        <a id="newEntry" href="/new">
-                            ➕
-                        </a>
-                        <button id="newEntry" class="new-entry-button">New entry</button>
+                        <button id="newEntry" class="new-entry-button" href="/new">
+                            <span class="icon"><i class="fas fa-square-plus"></i></span>
+                            <span class="text">New</span>
+                        </button>
                     </div>
                     <div class="buttons-container">
-                        <a id="accessRecord" href="/access">
-                            🔎
-                        </a>
-                        <button id="accessRecord" class="access-record-button">Access record</button>
+                        <button id="access" class="access-record-button" href="/access">
+                            <span class="icon"><i class="fas fa-database"></i></span>
+                            <span class="text">Access</span>
+                        </button>
                     </div>
                     <div class="buttons-container">
-                        <a id="updateRecord" href="/new">
-                            🆕
-                        </a>
-                        <button id="updateRecord" class="update-record-button">Update record</button>
+                        <button id="update" class="update-record-button" href="/update">
+                            <span class="icon"><i class="fas fa-edit"></i></span>
+                            <span class="text">Update</span>
+                        </button>
                     </div>
                     <div class="buttons-container">
-                        <a id="deleteRecord" href="/delete">
-                            ❌
-                        </a>
-                        <button id="deleteRecord" class="delete-record-button">Delete record</button>
+                        <button id="delete" class="delete-record-button" href="/delete">
+                            <span class="icon"><i class="fas fa-trash"></i></span>
+                            <span class="text">Delete</span>
+                        </button>
                     </div>
                 </div>
                 <div class="bottom-buttons-container">
                     <div class="buttons-container">
-                        <a id="" href="">
-                            🧒
-                        </a>
-                        <button id="AccountInfo" class="account-info-button">Account</button>
+                        <button id="AccountInfo" class="account-info-button" href="/account">
+                            <span class="icon"><i class="fas fa-user"></i></span>
+                            <span class="text">Account</span>
+                        </button>
                     </div>
                     <div class="buttons-container">
-                        <a href="/logout">
-                            📤
-                        </a>
-                        <button id="logout" class="logout-button">logout</button>
+                        <button id="signout" class="signout-button" href="/logout">
+                            <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                            <span class="text">Logout</span>
+                        </button>
                     </div>
                 </div>
-            </aside>
-            <div class="main-right">
+        </aside>
+        <div class="main-right">
+                <div class="new-entry-output">
+                    {% if message %}
+                        <p>{{ message }}</p>
+                    {% endif %}
+                    <table id="new-entry-table">
+                        <tr>
+                            <th>S/N</th>
+                            <th>Username</th>
+                            <th>User sjNo</th>
+                            <th>Desk No</th>
+                            <th>Chair No</th>
+                            <th>Level</th>
+                            <th>Stream</th>
+                        </tr>
+                    </table>
+                </div>
                
                 <div class="new-entry-form">
                     <h3>Create new data entry</h3>
                         <form method="POST" action="/new">
                             <div class="input-group">
-                                <lable><strong>username</strong> </lable><br>
+                                <label>Username</label><br>
                                 <input type="text" name='uname' required><br>
                              </div>
                             <div class="input-group">
-                                <label>user Sj number</label>
+                                <label>User Sj number</label>
                                  <input type="text" name="usersj"  required><br>
                              </div>
                             <div class="input-group">
@@ -124,7 +145,7 @@
                         <button id="new-entry-save">Save</button><br>
                         </form>
                 </div>
-            </div>
+        </div>
     </div>
 </body>
 </html>

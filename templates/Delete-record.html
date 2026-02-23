@@ -2,31 +2,17 @@
 <html lang="en">
 <head>
     <script src="index.js"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='index.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='Delete-record.css')}}">
+    <link rel="stylesheet" href="C:\Users\sj02093\Desktop\programming\python\furniture_database-theschoolofstjude.co.tz\static\index.css">
+    <link rel="stylesheet" href="C:\Users\sj02093\Desktop\programming\python\furniture_database-theschoolofstjude.co.tz\static\Delete-record.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delete records</title>
 </head>
-
-
-<script>
-
-     function toggle(source) {
-            checkboxes = document.getElementsByName('delete_ids');
-            for (var i = 0; i < checkboxes.length; i++) {
-                checkboxes[i].checked = source.checked;
-            }
-        }
-
-</script>
-
-
-
 <body>
     <header id="top-header">
         <div class="logo-container">
-            <img src="school logo.png" alt="logo">
+            <img src="C:\Users\sj02093\Desktop\programming\python\furniture_database-theschoolofstjude.co.tz\static\school logo.png" alt="shool-logo">
         </div>
         <div class="header-contents">
             <div class="searchbox-container">
@@ -34,13 +20,16 @@
             </div>
             <div class="header-links-container">
                 <button id="login-button" type="button" onclick="showLoginContainer()">
-                    🔑login
+                    <span class="icon"><i class="fas fa-home"></i></span>
+                    <span class="text">home</span>
                 </button>
                 <button class="notification-button">
-                    🔔notifications
+                    <span class="icon"><i class="fas fa-bell"></i></span>
+                    <span class="text">notifications</span>
                 </button>
                 <button class="settings-button">
-                    ⚙️settings
+                    <span class="icon"><i class="fas fa-gear"></i></span>
+                    <span class="text">settings</span>
                 </button>
             </div>
         </div>
@@ -49,48 +38,48 @@
         <aside class="side-nav">
                 <div class="top-buttons-container">
                     <div class="buttons-container">
-                        <a id="home" href="/new">
-                           🏚️
-                        </a>
-                        <button id="gohome" class="home-button">home</button>
+                        <button id="home" class="home-button">
+                           <span class="icon"><i class="fas fa-home"></i></span>
+                           <span class="text">Home</span>
+                        </button>
                     </div>
                     <div class="buttons-container">
-                        <a href="/new">
-                            ➕
-                        </a>
-                        <button id="newEntry" class="new-entry-button">New entry</button>
+                        <button id="newEntry" class="new-entry-button" href="/new">
+                            <span class="icon"><i class="fas fa-square-plus"></i></span>
+                            <span class="text">New</span>
+                        </button>
                     </div>
                     <div class="buttons-container">
-                        <a href="/access">
-                            🔎
-                        </a>
-                        <button id="accessRecord" class="access-record-button">Access record</button>
+                        <button id="access" class="access-record-button" href="/access">
+                            <span class="icon"><i class="fas fa-database"></i></span>
+                            <span class="text">Access</span>
+                        </button>
                     </div>
                     <div class="buttons-container">
-                        <a href="/new">
-                            🆕
-                        </a>
-                        <button id="updateRecord" class="update-record-button">Update record</button>
+                        <button id="update" class="update-record-button" href="/update">
+                            <span class="icon"><i class="fas fa-edit"></i></span>
+                            <span class="text">Update</span>
+                        </button>
                     </div>
                     <div class="buttons-container">
-                        <a href="/delete">
-                            ❌
-                        </a>
-                        <button id="deleteRecord" class="delete-record-button">Delete record</button>
+                        <button id="delete" class="delete-record-button" href="/delete">
+                            <span class="icon"><i class="fas fa-trash"></i></span>
+                            <span class="text">Delete</span>
+                        </button>
                     </div>
                 </div>
                 <div class="bottom-buttons-container">
                     <div class="buttons-container">
-                        <a href="">
-                            🧒
-                        </a>
-                        <button id="acountInfo" class="delete-record-button">Account</button>
+                        <button id="AccountInfo" class="account-info-button" href="/account">
+                            <span class="icon"><i class="fas fa-user"></i></span>
+                            <span class="text">Account</span>
+                        </button>
                     </div>
                     <div class="buttons-container">
-                        <a href="/logout">
-                            🔒
-                        </a>
-                        <button id="logout" class="delete-record-button">logout</button>
+                        <button id="signout" class="signout-button" href="/logout">
+                            <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                            <span class="text">Logout</span>
+                        </button>
                     </div>
                 </div>
             </aside>
@@ -104,9 +93,9 @@
                                     <input id="selectAll" type="checkbox" onclick="toggle(this)"> Select All
                                 </th>
                                 <th>Username</th>
-                                <th>usersj</th>
-                                <th>Deskno</th>
-                                <th>Chairno</th>
+                                <th>user sjNo</th>
+                                <th>Desk No</th>
+                                <th>Chair No</th>
                                 <th>Level</th>
                                 <th>Stream</th>
                             </tr>
@@ -157,5 +146,16 @@
                 </div>
             </div>
     </div>
+
+    <script>
+
+     function toggle(source) {
+            checkboxes = document.getElementsByName('delete_ids');
+            for (var i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = source.checked;
+            }
+        }
+
+</script>
 </body>
 </html>
