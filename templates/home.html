@@ -16,21 +16,23 @@
         </div>
         <div class="header-contents">
             <div class="searchbox-container">
-                <input type="search" placeholder="🔍... furniture number or owner">
+                <form method="GET" action="{{ url_for('search') if 'search' in globals() else '#' }}">
+                    <input class="topnav-searchbox" name="q" type="search" placeholder="🔍... furniture number or owner">
+                </form>
             </div>
             <div class="header-links-container">
-                <button id="login-button" type="button" onclick="showLoginContainer()">
+                <a id="login-button" type="button" onclick="showLoginContainer()">
                     <span class="icon"><i class="fas fa-home"></i></span>
                     <span class="text">home</span>
-                </button>
-                <button class="notification-button">
+                </a>
+                <a class="notification-button">
                     <span class="icon"><i class="fas fa-bell"></i></span>
                     <span class="text">notifications</span>
-                </button>
-                <button class="settings-button">
+                </a>
+                <a class="settings-button">
                     <span class="icon"><i class="fas fa-gear"></i></span>
                     <span class="text">settings</span>
-                </button>
+                </a>
             </div>
         </div>
     </header>

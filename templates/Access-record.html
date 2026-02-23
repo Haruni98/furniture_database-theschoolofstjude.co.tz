@@ -16,21 +16,23 @@
         </div>
         <div class="header-contents">
             <div class="searchbox-container">
-                <input type="search" placeholder="🔍... furniture number or owner">
+                <form method="GET" action="{{ url_for('search') if 'search' in globals() else '#' }}">
+                    <input class="topnav-searchbox" name="q" type="search" placeholder="🔍... furniture number or owner">
+                </form>
             </div>
             <div class="header-links-container">
-                <button id="login-button" type="button" onclick="showLoginContainer()">
+                <a id="login-button" type="button" onclick="showLoginContainer()">
                     <span class="icon"><i class="fas fa-home"></i></span>
                     <span class="text">home</span>
-                </button>
-                <button class="notification-button">
+                </a>
+                <a class="notification-button">
                     <span class="icon"><i class="fas fa-bell"></i></span>
                     <span class="text">notifications</span>
-                </button>
-                <button class="settings-button">
+                </a>
+                <a class="settings-button">
                     <span class="icon"><i class="fas fa-gear"></i></span>
                     <span class="text">settings</span>
-                </button>
+                </a>
             </div>
         </div>
     </header>
@@ -38,49 +40,49 @@
         <aside class="side-nav">
                 <div class="top-buttons-container">
                     <div class="buttons-container">
-                        <button id="home" class="home-button">
+                        <a id="home" class="home-button" href="/home">
                            <span class="icon"><i class="fas fa-home"></i></span>
                            <span class="text">Home</span>
-                        </button>
+                        </a>
                         
                     </div>
                     <div class="buttons-container">
-                        <button id="newEntry" class="new-entry-button" href="/new">
+                        <a id="newEntry" class="new-entry-button" href="/new">
                             <span class="icon"><i class="fas fa-square-plus"></i></span>
                             <span class="text">New</span>
-                        </button>
+                        </a>
                     </div>
                     <div class="buttons-container">
-                        <button id="access" class="access-record-button" href="/access">
+                        <a id="access" class="access-record-button" href="/access">
                             <span class="icon"><i class="fas fa-database"></i></span>
                             <span class="text">Access</span>
-                        </button>
+                        </a>
                     </div>
                     <div class="buttons-container">
-                        <button id="update" class="update-record-button" href="/update">
+                        <a id="update" class="update-record-button" href="/update">
                             <span class="icon"><i class="fas fa-edit"></i></span>
                             <span class="text">Update</span>
-                        </button>
+                        </a>
                     </div>
                     <div class="buttons-container">
-                        <button id="delete" class="delete-record-button" href="/delete">
+                        <a id="delete" class="delete-record-button" href="/delete">
                             <span class="icon"><i class="fas fa-trash"></i></span>
                             <span class="text">Delete</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <div class="bottom-buttons-container">
                     <div class="buttons-container">
-                        <button id="AccountInfo" class="account-info-button" href="/account">
+                        <a id="AccountInfo" class="account-info-button" href="/account">
                             <span class="icon"><i class="fas fa-user"></i></span>
                             <span class="text">Account</span>
-                        </button>
+                        </a>
                     </div>
                     <div class="buttons-container">
-                        <button id="signout" class="signout-button" href="/logout">
+                        <a id="signout" class="signout-button" href="/logout">
                             <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
                             <span class="text">Logout</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </aside>

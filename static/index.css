@@ -56,14 +56,30 @@ body{
     align-items: center;
     box-sizing: border-box;
 }
-.searchbox-container input{
+.searchbox-container form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
-    padding: 15px;
+    padding: 0px; /* remove vertical padding so inner input can fill height */
     background-color: wheat;
     border: 1px wheat solid;
     border-radius: 5px;
 }
+
+.topnav-searchbox{
+    width: 100%;
+    height: 100%;
+    display: block;
+    box-sizing: border-box;
+    padding: 0 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    font-size: inherit;
+}
+
 .header-links-container{
     height: 40px;
     gap: 3px;
@@ -71,14 +87,17 @@ body{
     justify-content: space-around;
     box-sizing: border-box;
 }
-.header-links-container button{
+.header-links-container a{
+    text-decoration: none;
+    align-content: center;
     color: #2C3E50;
     background-color: wheat;
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
 }
-.header-links-container button:hover{
+.header-links-container a:hover{
+    cursor: pointer;
     color: wheat;
     background-color: #2C3E50;
 }
@@ -150,11 +169,12 @@ body{
 /*fill: currentColor;   /* for filled icons */
 }
 .buttons-container a:hover {
+    cursor: pointer;
     color: var(--nav-icon-hover, burlywood);
     background-color: #2C3E50;
 }
 
-.top-buttons-container button, .bottom-buttons-container button{
+.top-buttons-container a, .bottom-buttons-container a{
     width: 100%;
     height: 100%;
     display: flex;
