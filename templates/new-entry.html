@@ -10,16 +10,28 @@
     <title>new entry</title>
 </head>
 <body>
+
+    <!-- Header section -->
     <header id="top-header">
         <div class="logo-container">
             <img src="C:\Users\sj02093\Desktop\programming\python\furniture_database-theschoolofstjude.co.tz\static\school logo.png" alt="logo">
         </div>
         <div class="header-contents">
+            <!-- Search box -->
             <div class="searchbox-container">
                 <form method="GET" action="{{ url_for('search') if 'search' in globals() else '#' }}">
-                    <input class="topnav-searchbox" name="q" type="search" placeholder="🔍... furniture number or owner">
+                    <input name="topnav-searchbox" name="q" type="search" placeholder="🔍... furniture number">
+                    <select name="furniture-type" id="">
+                        <option value="chair">Chair</option>
+                        <option value="desk">Desk</option>
+                    </select>
+                    <button name="find-button">
+                        <span class="icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                        <span class="text">find</span>
+                    </button>
                 </form>
             </div>
+            <!--top navigation links-->
             <div class="header-links-container">
                 <a id="login-button" type="button" onclick="showLoginContainer()">
                     <span class="icon"><i class="fas fa-home"></i></span>
@@ -37,7 +49,9 @@
         </div>
     </header>
     <div id="main">
+        <!--the side navigation-->
         <aside class="side-nav">
+                <!--top links on the side navigation-->
                 <div class="top-buttons-container">
                     <div class="buttons-container">
                         <a id="home" class="home-button">
@@ -71,6 +85,7 @@
                         </a>
                     </div>
                 </div>
+                <!--bottom links on the side navigation-->
                 <div class="bottom-buttons-container">
                     <div class="buttons-container">
                         <a id="AccountInfo" class="account-info-button" href="/account">
@@ -86,7 +101,9 @@
                     </div>
                 </div>
         </aside>
+        <!--right section of the main-->
         <div class="main-right">
+                <!--main output area-->
                 <div class="new-entry-output">
                     {% if message %}
                         <p>{{ message }}</p>
@@ -104,6 +121,7 @@
                     </table>
                 </div>
                
+                <!--New entry form-->
                 <div class="new-entry-form">
                     <h3>Create new data entry</h3>
                         <form method="POST" action="/new">
